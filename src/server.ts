@@ -1,14 +1,18 @@
 import * as http from "http"
-import { getListEpisodes } from "./controller/podcasts-controller"
+import { getListEpisodes, filterEpisode } from "./controller/podcasts-controller"
 
 const server = http.createServer(async (req: http.IncomingMessage, res: http.ServerResponse) => {
-    if (req.method === "GET") {
+    if (req.method === "GET" && req.url === "/api/list") {
         await getListEpisodes(req, res)
     }
+
+    if (req.method === "GET" && req.url === "/api/episode") {
+        await filterEpisode(req, res)
+    }
+
+    const port = process.env.PORT
+
+    server.listen(port, () => {
+        console.log(`servidor iniciado na porta ${port}`)
+    })
 })
-
-const port = process.env.PORT
-
-server.listen(port, () => {
-    console.log(`servidor iniciado na porta ${port}`)
-}) 
