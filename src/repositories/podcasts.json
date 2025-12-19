@@ -1,11 +1,28 @@
 [
     {
-        "podcastName": "1",
+        "podcastName": "flow",
         "episode": "Podcast Example",
         "videoId": "Swp9056a03g",
         "categories": [
-            "Technology",
-            "Education"
+            "resenha"
+        ]
+    },
+    {
+        "podcastName": "cariani",
+        "episode": "Podcast Example",
+        "videoId": "Swp9056a03g",
+        "categories": [
+            "academia",
+            "saude"
+        ]
+    },
+    {
+        "podcastName": "winderson",
+        "episode": "Podcast Example",
+        "videoId": "Swp9056a03g",
+        "categories": [
+            "humor",
+            "standup"
         ]
     }
 ]

@@ -1,7 +1,15 @@
-import { repositoryPodcast } from "../repositories/podcasts-repository"
+import { PodCastModelDTO } from "../models/podcast-modelDTO"
+import { podcastRepository } from "../repositories/podcasts-repository"
 
-export const serviceListEpisodes = async () => {
-    const data = await repositoryPodcast()
+export const listEpisodesService = async (): Promise<PodCastModelDTO> => {
+    let responseFormat: PodCastModelDTO = {
+        statusCode: 0,
+        body: []
+    }
 
-    return data
+    const data = await podcastRepository()
+
+    responseFormat.statusCode = data.length !== 0 ? responseFormat.statusCode = 200 : responseFormat.statusCode = 204
+    responseFormat.body = data
+    return responseFormat
 }
